@@ -10,11 +10,15 @@
 <body>
     <div id="principal">
         <h1>Consulte seu Cep aqui!</h1>
+
         <div id="formulario">
-            <form method="POST" action="Controller/consultar.php">
-                CEP: <input type="text" name="cep" placeholder="Insira o cep" required>
+            <form method="POST" action="classes/Controller.php">
+                CEP: <input type="text" name="cep" placeholder="Insira o cep" required/>
                 <input type="submit" /></p>
+            </form>
         </div>
+
+        <div id="container"></div>
     </div>
 </body>
 </html>
