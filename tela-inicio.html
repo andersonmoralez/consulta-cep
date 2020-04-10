@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8"/>
+    <title>Consultar CEP</title>
+    <link rel="stylesheet" type="text/css" href="css/css-tela-inicio.css" media="screen" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+    <script type="text/javascript" src="javascript/jquery-controller.js"></script>
+</head>
+<body>
+    <div class="principal">
+        <header class="header">
+            Cabeçalho! Faça suas pesquisas aqui!
+        </header>
+
+        <article class="busca">
+                <form class="form" method="POST" action="classes/Controller.php">
+                    CEP: <input class ="cep" type="text" name="cep"placeholder="Insira o cep" required/>
+                    <input class="submit" type="submit" value="Buscar"/>
+                </form>
+        </article>
+
+        <article class="data">
+            <!--Dados PHP via JS-->
+        </article>
+        
+        <footer class="rodape">
+            Rodapé! Todos os direitos reservados.
+        </footer>
+    </div>
+</body>
+</html>
