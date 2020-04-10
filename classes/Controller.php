@@ -1,49 +1,33 @@
 <?php
     Class Controller{
-        public $cep;
-
-        public function ConsultaViaCEP(){
-            $cep = Controller::setFormCEP();
-            $cep = preg_replace("/[^0-9]/", "", $cep);
-            $url = file_get_contents("http://viacep.com.br/ws/$cep/json/");
-            $json = json_decode($url, true);
-            return $json;
+        public function setEnderecoAPI(){
+            $cep = Controller::getFormCEP();
+            if(!@$url = file_get_contents("https://api.postmon.com.br/v1/cep/$cep")){
+                return "CEP invalido ou falha na comunicação com a API!";
+            }else{
+                $url = file_get_contents("https://api.postmon.com.br/v1/cep/$cep");
+                $json = json_decode($url, true);
+                return $json;
+            }
         }
 
-        private function setFormCEP(){
+        private function getFormCEP(){
             $formCEP = $_POST['cep'];
+            $formCEP = preg_replace("/[^0-9]/", "", $formCEP);
             return $formCEP;
         }
-
-        public function getCEP(){
-            return Controller::ConsultaViaCEP()['cep'];
-        }
-
-        public function getLogradouro(){
-            return Controller::ConsultaViaCEP()['logradouro'];
-        }
-
-         public function getComplemento(){
-            return Controller::ConsultaViaCEP()['complemento'];
-        }
-
-        public function getBairro(){
-            return Controller::ConsultaViaCEP()['bairro'];
-        }
-
-        public function getLocalidade(){
-            return Controller::ConsultaViaCEP()['localidade'];
-        }
-
-        public function getUF(){
-            return Controller::ConsultaViaCEP()['uf'];
-        }
     }
+//campo de testes
+    $endereco = new Controller();
+    $arrayEnd = $endereco::setEnderecoAPI();
+    if(is_array($arrayEnd)){
+        echo "Rua: " . $arrayEnd["logradouro"] . "<br>";
+        echo "Bairro: " . $arrayEnd["bairro"] . "<br>";
+        echo "Cidade: " . $arrayEnd["cidade"] . "<br>";
+        echo "Estado: " . $arrayEnd["estado"] . "<br>";
+        echo "CEP: " . $arrayEnd["cep"] . "<br>";
 
-    echo Controller::getCEP()."<br>";
-    echo Controller::getLogradouro()."<br>";
-    echo Controller::getComplemento()."<br>";
-    echo Controller::getBairro()."<br>";
-    echo Controller::getLocalidade()."<br>";
-    echo Controller::getUF()."<br>";
+    }else{
+        echo $arrayEnd;
+    }
 ?>
