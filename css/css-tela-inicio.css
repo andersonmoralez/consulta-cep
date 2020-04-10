@@ -1,0 +1,66 @@
+body{
+    background-color:#1C1C1C;
+    margin:0;
+}
+.principal{
+    position:fixed;
+    left:50%;
+    bottom:0;
+    top:0;
+    margin-left:-301px;
+    background-color: red;
+    width:650px;
+    height:100%;
+    border:0;
+}
+.header{
+    position:relative;
+    top:90px;
+    font-family:Georgia;
+    text-align:center;
+    font-size:150%;
+    text-transform: uppercase;
+}
+.busca{
+    position:relative;
+    top:100px;
+    height:150px;
+    background-color:purple;
+    margin-left:10px;
+    margin-right:10px;
+    border-radius:10px 10px 0px 0px;
+    padding:10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 -6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+}.form{
+    /*centraliza caixa de pesquisa
+    text-align:center;*/
+    position:relative;
+    top:30px;
+    font-size:20px;
+    position:relative;
+    background-color:pink;
+    padding:10px;
+    margin-left:10px;
+    margin-right:10px;
+    border:100px;
+    /*padding:1px;*/
+}
+.data{
+    /*nao possue width ou height*/
+    position:relative;
+    top:100px;
+    background-color:yellow;
+    text-align:left;
+    font-family:Georgia;
+    margin-left:10px;
+    margin-right:10px;
+    border-radius:0px 0px 10px 10px;
+    padding:10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.rodape{
+    position:relative;
+    top:110px;
+    text-align:center;
+}
